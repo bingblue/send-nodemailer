@@ -8,4 +8,4 @@ COPY package.json /package.json
 
 RUN npm i
 
-ENTRYPOINT ["/index.js"]
+ENTRYPOINT ["node", "/index.js"]
