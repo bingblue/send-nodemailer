@@ -18,5 +18,3 @@ jobs:
         pass: '${{ secrets.MAIL_PASS }}'
         to: 895355044@qq.com,xiaomucool@bingblue.com
         subject: '[滨清科技] --> ${{ github.repository }}项目构建结果'
-        html:
-          path: ./success.html
