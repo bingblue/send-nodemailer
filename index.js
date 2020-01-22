@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 
 /** 配置 */
 const options = {
-  host: process.env.myInput || 'smtp.exmail.qq.com',
+  host: 'smtp.exmail.qq.com',
   port: 465,
   secure: true,
   auth: {
