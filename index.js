@@ -20,7 +20,7 @@ const data = {
   html: process.env['INPUT_HTML']
 }
 if (process.env['INPUT_PATH']) {
-  data.text = {
+  data.html = {
     path: process.env['INPUT_PATH']
   }
 }
