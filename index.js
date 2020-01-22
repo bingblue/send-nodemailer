@@ -19,6 +19,11 @@ const data = {
   text: JSON.parse(process.env['INPUT_TEXT']),
   html: process.env['INPUT_HTML']
 }
+if (process.env['INPUT_PATH']) {
+  data.text = {
+    path: process.env['INPUT_PATH']
+  }
+}
 const transport = nodemailer.createTransport(options)
 transport.sendMail(data, (err, info) => {
   if(err) console.error('err', err)

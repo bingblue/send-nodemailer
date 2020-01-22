@@ -29,6 +29,8 @@ inputs:
   text:
     description: 'The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘/var/data/…’})'
     default: '来自Github Actions的自动发送'
+  path:
+    description: 'HTML文件路径'
   html:
     description: 'The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})'
 runs:
