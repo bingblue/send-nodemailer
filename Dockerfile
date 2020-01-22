@@ -6,4 +6,6 @@ COPY index.js /
 
 COPY package.json /package.json
 
-RUN npm i && npm start
+RUN npm i
+
+ENTRYPOINT ["/index.js"]

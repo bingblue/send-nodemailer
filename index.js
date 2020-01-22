@@ -26,7 +26,6 @@ const data = {
   // ]
 }
 console.log('process.env==>', process.env)
-console.log('process.ENV===》', process.ENV)
 console.log('ENV===》', process.env['INPUT_MYINPUT'])
 // const transport = nodemailer.createTransport(options)
 // transport.sendMail(data, (err, info) => {
