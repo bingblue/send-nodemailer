@@ -16,7 +16,7 @@ const data = {
   from: process.env['INPUT_FROM'],
   to: process.env['INPUT_TO'],
   subject: process.env['INPUT_SUBJECT'],
-  text: process.env['INPUT_TEXT'],
+  text: JSON.parse(process.env['INPUT_TEXT']),
   html: process.env['INPUT_HTML']
 }
 const transport = nodemailer.createTransport(options)
