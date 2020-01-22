@@ -48,7 +48,7 @@ function getHtml () {
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
     ✘ 很抱歉，构建失败！
   </h1>`
-  const github = process.env
+  const github = JSON.stringify(process.env)
   return `
   <!DOCTYPE html>
   <html>
