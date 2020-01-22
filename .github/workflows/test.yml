@@ -14,5 +14,5 @@ jobs:
     - name: 发送邮件
       uses: ./
       with:
-        myInput: 123456
-        myInput2: ${{github.repository}}
+        myinput: '${{github.repository}}'
+        myInput2: '123456'

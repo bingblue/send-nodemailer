@@ -5,12 +5,12 @@ branding:
   icon: mail
   color: red
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
   myInput2:
     description: 'Input to use'
     default: 'world'
+  myinput:
+    description: 'Input to use'
+    default: 'world22'
 runs:
   using: 'docker'
   image: 'Dockerfile'
