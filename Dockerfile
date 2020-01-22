@@ -1,7 +1,9 @@
-FROM alpine:3.10
+FROM node:alpine
 
-COPY LICENSE README.md /
+LABEL maintainer="XiaoMuCOOL <gavin@bingblue.com>"
 
-COPY entrypoint.sh /entrypoint.sh
+COPY index.js /
 
-ENTRYPOINT ["/entrypoint.sh"]
+COPY package.json /package.json
+
+RUN npm i && npm start

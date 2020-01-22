@@ -1,0 +1,27 @@
+{
+  "name": "send-nodemailer",
+  "version": "0.0.1",
+  "description": "Send Email By Nodemailer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bingblue/send-nodemailer.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "nodemailer"
+  ],
+  "author": "XiaoMuCOOL <xiaomucool@bingblue.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bingblue/send-nodemailer/issues"
+  },
+  "homepage": "https://github.com/bingblue/send-nodemailer#readme",
+  "dependencies": {
+    "nodemailer": "^6.4.2"
+  }
+}
