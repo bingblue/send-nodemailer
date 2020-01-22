@@ -30,6 +30,9 @@ inputs:
     description: 'The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘/var/data/…’})'
   html:
     description: 'The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})'
+  github:
+    description: 'Github env'
+    default: ${{ github }}
 runs:
   using: 'docker'
   image: 'Dockerfile'

@@ -81,7 +81,7 @@ function getHtml () {
       <tr>
         <td>
           <ul style="color:#fff;background:#${color};padding:30px 50px;line-height:30px;margin:30px auto;">
-            <li>构建名称：env.JOB_NAME</li>
+            <li>构建名称：${process.env.GITHUB_REPOSITORY}</li>
             <li>构建结果：currentBuild.result</li>
             <li>构建编号：env.BUILD_DISPLAY_NAME</li>
             <li>开始时间：currentBuild.startTimeInMillis</li>
