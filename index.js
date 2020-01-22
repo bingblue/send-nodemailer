@@ -4,30 +4,22 @@ const nodemailer = require('nodemailer')
 
 /** 配置 */
 const options = {
-  host: 'smtp.exmail.qq.com',
-  port: 465,
-  secure: true,
+  host: process.env['INPUT_HOST'],
+  port: process.env['INPUT_PORT'],
+  secure: process.env['INPUT_SECURE'],
   auth: {
-    user: 'system@bingblue.com',
-    pass: 'gL6rg2fJecTHHZm3'
+    user: process.env['INPUT_USER'],
+    pass: process.env['INPUT_PASS']
   }
 }
 const data = {
-  from:'[滨清科技] <system@bingblue.com>',
-  to:'895355044@qq.com',
-  subject:'主题',
-  text:'我试试主题',
-  // html:'',
-  // attachments:[
-  // {
-  //     filename:'',
-  //     path:'',
-  //   }
-  // ]
+  from: process.env['INPUT_FROM'],
+  to: process.env['INPUT_TO'],
+  subject: process.env['INPUT_SUBJECT'],
+  text: process.env['INPUT_TEXT'],
+  html: process.env['INPUT_HTML']
 }
-console.log('process.env==>', process.env)
-console.log('ENV===》', process.env['INPUT_MYINPUT'])
-// const transport = nodemailer.createTransport(options)
-// transport.sendMail(data, (err, info) => {
-//   if(err) console.error('err', err)
-// })
+const transport = nodemailer.createTransport(options)
+transport.sendMail(data, (err, info) => {
+  if(err) console.error('err', err)
+})

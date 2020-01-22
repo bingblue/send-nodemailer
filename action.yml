@@ -5,12 +5,32 @@ branding:
   icon: mail
   color: red
 inputs: 
-  myInput2:
-    description: 'Input to use'
-    default: 'world'
-  myinput:
-    description: 'Input to use'
-    default: 'world22'
+  host:
+    description: 'is the hostname or IP address to connect to'
+    default: 'smtp.exmail.qq.com'
+  port:
+    description: 'is the port to connect to'
+    default: 465
+  secure:
+    description: 'is the use TLS'
+    default: true
+  user:
+    description: 'is the username'
+  pass:
+    description: 'is the password'
+  from:
+    description: 'The email address of the sender'
+    default: '[滨清科技] <system@bingblue.com>'
+  to:
+    description: 'Comma separated list or an array of recipients email addresses'
+  subject:
+    description: 'The subject of the email'
+    default: '来自Github Actions的自动发送'
+  text:
+    description: 'The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘/var/data/…’})'
+    default: '来自Github Actions的自动发送'
+  html:
+    description: 'The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})'
 runs:
   using: 'docker'
   image: 'Dockerfile'
