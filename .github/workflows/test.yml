@@ -14,5 +14,8 @@ jobs:
     - name: 发送邮件
       uses: ./
       with:
-        myinput: '${{github.repository}}'
-        myInput2: '123456'
+        user: '${{ secrets.MAIL_USER }}'
+        pass: '${{ secrets.MAIL_PASS }}'
+        to: 895355044@qq.com
+        subject: '123456'
+        text: '我是内容'
