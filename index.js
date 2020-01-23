@@ -30,16 +30,18 @@ if (data.html.startsWith(prefix)) {
     path: data.html.replace(prefix, '')
   }
 }
-if (!data.text && !data.html) {
-  data.html = getHtml()
+let github = process.env['INPUT_GITHUB']
+if (github) {
+  github.isSuccess = process.env['INPUT_SUCCESS'] || true
+  data.html = getHtml(github)
 }
-// const transport = nodemailer.createTransport(options)
-// transport.sendMail(data, (err, info) => {
-//   if(err) console.error('err', err)
-// })
+const transport = nodemailer.createTransport(options)
+transport.sendMail(data, (err, info) => {
+  if(err) console.error('err', err)
+})
 
-function getHtml () {
-  const isSuccess = true
+function getHtml (github) {
+  const isSuccess = github.isSuccess
   const color = isSuccess ? '77af37' : 'd54c53'
   const h1 = isSuccess ? `
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
@@ -48,13 +50,6 @@ function getHtml () {
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
     ✘ 很抱歉，构建失败！
   </h1>`
-  const github = JSON.stringify(process.env['INPUT_GITHUB'])
-  const job = JSON.stringify(process.env['INPUT_JOB'])
-  console.log(process.env['INPUT_GITHUB'])
-  console.log(process.env['INPUT_JOB'])
-  console.log(github)
-  console.log(job)
-  return 1
   return `
   <!DOCTYPE html>
   <html>
@@ -87,15 +82,16 @@ function getHtml () {
       <tr>
         <td>
           <ul style="color:#fff;background:#${color};padding:30px 50px;line-height:30px;margin:30px auto;">
-            <li>构建名称：${github.repository}</li>
-            <li>构建结果：currentBuild.result</li>
-            <li>操作人：${gitub.actor}</li>
-            <li>构建编号：env.BUILD_DISPLAY_NAME</li>
-            <li>开始时间：currentBuild.startTimeInMillis</li>
-            <li>构建时间：currentBuild.durationString</li>
+            <li>构建名称：${github.event.repository.name}</li>
+            <li>构建结果：${isSuccess ? '成功！' : '失败！'}</li>
+            <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
+              ${gitub.event.sender.login}
+            </a></li>
+            <li>构建编号：${gitub.run_number} - ${gitub.run_id}</li>
+            <li>完成时间：${new Date().toLocaleString()}</li>
             <li>${github}</li>
-            <li>项目地址：<a style="color:#fff;text-decoration:none;" href="https://github.com/xiaomucool/">
-              github.com/xiaomucool/
+            <li>项目地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}">
+              ${github.repository}
             </a></li>
           </ul>
         </td>
