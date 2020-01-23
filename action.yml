@@ -32,6 +32,8 @@ inputs:
     description: 'The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})'
   github:
     description: 'Github env'
+  success: 
+    description: 'Job.status env'
 runs:
   using: 'docker'
   image: 'Dockerfile'
