@@ -88,7 +88,7 @@ function getHtml (github) {
             <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
               ${github.event.sender.login}
             </a></li>
-            <li>构建编号：${gitub.run_number} - ${gitub.run_id}</li>
+            <li>构建编号：${github.run_number} - ${github.run_id}</li>
             <li>完成时间：${new Date().toLocaleString()}</li>
             <li>${github}</li>
             <li>项目地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}">
