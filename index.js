@@ -33,10 +33,10 @@ if (data.html.startsWith(prefix)) {
 if (!data.text && !data.html) {
   data.html = getHtml()
 }
-const transport = nodemailer.createTransport(options)
-transport.sendMail(data, (err, info) => {
-  if(err) console.error('err', err)
-})
+// const transport = nodemailer.createTransport(options)
+// transport.sendMail(data, (err, info) => {
+//   if(err) console.error('err', err)
+// })
 
 function getHtml () {
   const isSuccess = true
@@ -48,7 +48,13 @@ function getHtml () {
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
     ✘ 很抱歉，构建失败！
   </h1>`
-  const github = JSON.stringify(process.env)
+  const github = JSON.stringify(process.env['INPUT_GITHUB'])
+  const job = JSON.stringify(process.env['INPUT_JOB'])
+  console.log(process.env['INPUT_GITHUB'])
+  console.log(process.env['INPUT_JOB'])
+  console.log(github)
+  console.log(job)
+  return 1
   return `
   <!DOCTYPE html>
   <html>
@@ -81,8 +87,9 @@ function getHtml () {
       <tr>
         <td>
           <ul style="color:#fff;background:#${color};padding:30px 50px;line-height:30px;margin:30px auto;">
-            <li>构建名称：${process.env.GITHUB_REPOSITORY}</li>
+            <li>构建名称：${github.repository}</li>
             <li>构建结果：currentBuild.result</li>
+            <li>操作人：${gitub.actor}</li>
             <li>构建编号：env.BUILD_DISPLAY_NAME</li>
             <li>开始时间：currentBuild.startTimeInMillis</li>
             <li>构建时间：currentBuild.durationString</li>
