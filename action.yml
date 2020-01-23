@@ -1,12 +1,39 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
+name: 'Send Mail'
+description: 'Send Email By Nodemailer'
+author: 'XiaoMuCOOL <xiaomucool@bingblue.com>'
+branding:
+  icon: mail
+  color: red
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  host:
+    description: 'is the hostname or IP address to connect to'
+    default: 'smtp.exmail.qq.com'
+  port:
+    description: 'is the port to connect to'
+    default: 465
+  secure:
+    description: 'is the use TLS'
+    default: true
+  user:
+    description: 'is the username'
+  pass:
+    description: 'is the password'
+  from:
+    description: 'The email address of the sender'
+    default: '[滨清科技] <system@bingblue.com>'
+  to:
+    description: 'Comma separated list or an array of recipients email addresses'
+  subject:
+    description: 'The subject of the email'
+    default: '来自Github Actions的自动发送'
+  text:
+    description: 'The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘/var/data/…’})'
+  html:
+    description: 'The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object ({path: ‘http://…‘})'
+  github:
+    description: 'Github env'
+  success: 
+    description: 'Job.status env'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.myInput }}
