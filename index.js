@@ -31,7 +31,8 @@ if (data.html.startsWith(prefix)) {
   }
 }
 let github = process.env['INPUT_GITHUB']
-console.log(github)
+console.log('github.event==>', github.event)
+console.log('github.event.repository==>', github.event.repository)
 if (github) {
   github.isSuccess = process.env['INPUT_SUCCESS'] || true
   data.html = getHtml(github)
