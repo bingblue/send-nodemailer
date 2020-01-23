@@ -86,7 +86,7 @@ function getHtml (github) {
             <li>构建名称：${github.event.repository.name}</li>
             <li>构建结果：${isSuccess ? '成功！' : '失败！'}</li>
             <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
-              ${gitub.event.sender.login}
+              ${github.event.sender.login}
             </a></li>
             <li>构建编号：${gitub.run_number} - ${gitub.run_id}</li>
             <li>完成时间：${new Date().toLocaleString()}</li>
