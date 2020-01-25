@@ -4,17 +4,17 @@ Send Email By Nodemailer.
 
 使用`Nodemailer`发送邮件。
 
-## 基本信息
+## Base Info/基本信息
 
-**作者** ： 小牧COOL
+**Author/作者** ： 小牧COOL
 
-**博客** ： [www.xiaomucool.com][4]
+**Blog/博客** ： [xiaomucool.com][4]
 
-**QQ群** ： [215259343][1]
+**QQ group/QQ群** ： [215259343][1]
 
-**官网** ： [www.bingblue.com][2]
+**Website/官网** ： [www.bingblue.com][2]
 
-## Usage
+## Usage/用法
 ```yml
 - name: Send Mail 发送邮件
   uses: bingblue/send-nodemailer@master
@@ -23,7 +23,7 @@ Send Email By Nodemailer.
     user: '${{ secrets.MAIL_USER }}'
     # 密码
     pass: '${{ secrets.MAIL_PASS }}'
-    # host，在邮箱的设置里可以找到
+    # Host，在邮箱的设置里可以找到
     host: 'smtp.exmail.qq.com'
     # 端口
     port: 465
@@ -35,11 +35,17 @@ Send Email By Nodemailer.
     to: someone@gmail.com,sometwo@outlook.com
     # 主题
     subject: 'this is email subject'
-    # use html file，使用HTML文件
+    # Use html file, prefix [file://]，使用HTML文件，已[file://]开头
     html: file://./path/result.html
-    # use html，使用HTML代码片段
-    html: '<p>this is content</p>'
+    # Or use html script，或者使用HTML代码片段
+    # html: '<p>this is content</p>'
 ```
+
+## More/更多
+
+Usage docs for Nodemailer are [here][5].
+
+更多`Nodemailer`用法请看[官方文档][5]。
 
 ## License
 
@@ -50,4 +56,5 @@ Powered by : **小牧COOL**
 [1]:https://jq.qq.com/?_wv=1027&k=5tyQDAd
 [2]:https://www.bingblue.com
 [3]:https://github.com/bingblue/send-nodemailer/blob/master/LICENSE
-[4]:https://www.xiaomucool.com
+[4]:https://xiaomucool.com
+[5]:https://nodemailer.com/usage/

@@ -11,7 +11,11 @@ jobs:
     - name: 更新代码
       uses: actions/checkout@master
     
+    - name: 测试报错
+      run: node start
+
     - name: 发送邮件
+      if: always()
       uses: ./
       with:
         user: '${{ secrets.MAIL_USER }}'
