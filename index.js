@@ -94,11 +94,12 @@ function getHtml (github) {
               ${github.event.sender.login}
             </a></li>
             <li>构建编号：${github.run_number} - ${github.run_id}</li>
-            <li>完成时间：${new Date().toLocaleString()}</li>
+            <li>构建事件：on:${github.event_name}(${github.sha.substring(0, 7)})</li>
+            <li>持续时间：${getDuration(github)}</li>
             <li>项目地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}">
               ${github.repository}
             </a></li>
-            <li>构建地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}/actions">
+            <li>构建地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}/runs/${github.run_id}">
               ${github.repository}/actions
             </a></li>
           </ul>
@@ -115,4 +116,18 @@ function getHtml (github) {
     </table>
   </body>
   </html>`
+}
+/** 获取持续时间 */
+function getDuration (github) {
+  earlyDate = new Date(github.event.commits.timestamp).getTime()
+  lateDate = new Date().getTime()
+  let diff = lateDate - earlyDate
+  let second = parseInt(diff / 1000)
+  let minute
+  if (second > 60) {
+    minute = parseInt(second / 60)
+    second = second % 60
+    return `${minute}分${second}秒`
+  }
+  return `${second}秒`
 }

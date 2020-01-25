@@ -5,16 +5,16 @@ on:
       - master
 jobs:
   test:
-    name: 测试
+    name: Test 测试
     runs-on: ubuntu-latest
     steps:
-    - name: 更新代码
+    - name: Checkout 更新代码
       uses: actions/checkout@master
     
-    # - name: 测试报错
+    # - name: Test Error 测试报错
     #   run: node start
 
-    - name: 发送邮件
+    - name: Send Mail 发送邮件
       if: always()
       uses: ./
       with:
