@@ -4,17 +4,17 @@ Send Email By Nodemailer.
 
 使用`Nodemailer`发送邮件。
 
-## Base Info/基本信息
+## Base Info
 
-**Author/作者** ： 小牧COOL
+**作者** ： 小牧COOL
 
-**Blog/博客** ： [xiaomucool.com][4]
+**博客** ： [xiaomucool.com][4]
 
-**QQ group/QQ群** ： [215259343][1]
+**QQ群** ： [215259343][1]
 
-**Website/官网** ： [www.bingblue.com][2]
+**官网** ： [www.bingblue.com][2]
 
-## Usage/用法
+## Usage
 ```yml
 - name: Send Mail 发送邮件
   uses: bingblue/send-nodemailer@master
@@ -35,13 +35,13 @@ Send Email By Nodemailer.
     to: someone@gmail.com,sometwo@outlook.com
     # 主题
     subject: 'this is email subject'
-    # Use html file, prefix [file://]，使用HTML文件，已[file://]开头
+    # Use html file prefix [file://]，使用HTML文件，已[file://]开头
     html: file://./path/result.html
     # Or use html script，或者使用HTML代码片段
     # html: '<p>this is content</p>'
 ```
 
-## More/更多
+## More
 
 Usage docs for Nodemailer are [here][5].
 

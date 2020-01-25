@@ -1,6 +1,6 @@
 {
   "name": "send-nodemailer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Send Email By Nodemailer",
   "main": "index.js",
   "scripts": {
