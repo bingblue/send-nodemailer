@@ -88,7 +88,9 @@ function getHtml (github) {
         <td>
           <ul style="color:#fff;background:#${color};padding:30px 50px;line-height:30px;margin:30px auto;">
             <li>构建名称：${github.event.repository.name}</li>
+            <li>构建分支：${github.ref}</li>
             <li>构建结果：${isSuccess ? '成功！' : '失败！'}</li>
+            <li>构建结果：${github.isSuccess}</li>
             <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
               ${github.event.sender.login}
             </a></li>
