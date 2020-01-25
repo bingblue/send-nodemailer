@@ -119,9 +119,10 @@ function getHtml (github) {
 }
 /** 获取持续时间 */
 function getDuration (github) {
+  console.log('github.event.commits==>', github.event.commits)
+  console.log('github.event.commits.timestamp==>', github.event.head_commit.timestamp)
   console.log('github==>', github)
-  console.log('github.event.commits.timestamp==>', github.event.commits.timestamp)
-  earlyDate = new Date(github.event.commits.timestamp).getTime()
+  earlyDate = new Date(github.event.head_commit.timestamp).getTime()
   lateDate = new Date().getTime()
   let diff = lateDate - earlyDate
   let second = parseInt(diff / 1000)
