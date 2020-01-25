@@ -1,4 +1,4 @@
-name: 'Send nodeMailer'
+name: 'Send Nodemailer'
 description: 'Send Email By Nodemailer'
 author: 'XiaoMuCOOL <xiaomucool@bingblue.com>'
 branding:
