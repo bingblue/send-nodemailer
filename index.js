@@ -99,7 +99,7 @@ function getHtml (github) {
             <li>项目地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}">
               ${github.repository}
             </a></li>
-            <li>构建地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}/runs/${github.run_id}">
+            <li>构建地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}/actions/runs/${github.run_id}">
               ${github.repository}/actions
             </a></li>
           </ul>
@@ -119,6 +119,8 @@ function getHtml (github) {
 }
 /** 获取持续时间 */
 function getDuration (github) {
+  console.log('github==>', github)
+  console.log('github.event.commits.timestamp==>', github.event.commits.timestamp)
   earlyDate = new Date(github.event.commits.timestamp).getTime()
   lateDate = new Date().getTime()
   let diff = lateDate - earlyDate
