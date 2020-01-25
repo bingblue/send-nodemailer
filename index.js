@@ -89,17 +89,16 @@ function getHtml (github) {
           <ul style="color:#fff;background:#${color};padding:30px 50px;line-height:30px;margin:30px auto;">
             <li>构建名称：${github.event.repository.name}</li>
             <li>构建分支：${github.ref}</li>
-            <li>构建结果：${isSuccess ? '成功！' : '失败！'}</li>
-            <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
-              ${github.event.sender.login}
-            </a></li>
             <li>构建编号：${github.run_number} - ${github.run_id}</li>
             <li>构建事件：on:${github.event_name}(${github.sha.substring(0, 7)})</li>
+            <li>操作人：<a style="color:#fff;" href="${github.event.sender.url}">
+              ${github.event.sender.login}
+            </a></li>
             <li>持续时间：${getDuration(github)}</li>
-            <li>项目地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}">
+            <li>项目地址：<a style="color:#fff;" href="${github.event.repository.url}">
               ${github.repository}
             </a></li>
-            <li>构建地址：<a style="color:#fff;text-decoration:none;" href="${github.event.repository.url}/actions/runs/${github.run_id}">
+            <li>构建地址：<a style="color:#fff;" href="${github.event.repository.url}/actions/runs/${github.run_id}">
               ${github.repository}/actions
             </a></li>
           </ul>
@@ -119,9 +118,6 @@ function getHtml (github) {
 }
 /** 获取持续时间 */
 function getDuration (github) {
-  console.log('github.event.commits==>', github.event.commits)
-  console.log('github.event.commits.timestamp==>', github.event.head_commit.timestamp)
-  console.log('github==>', github)
   earlyDate = new Date(github.event.head_commit.timestamp).getTime()
   lateDate = new Date().getTime()
   let diff = lateDate - earlyDate
