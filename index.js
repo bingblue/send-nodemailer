@@ -46,7 +46,7 @@ transport.sendMail(data, (err, info) => {
 })
 /** 获取默认邮件样式 */
 function getHtml (github) {
-  const isSuccess = github.isSuccess
+  const isSuccess = github.isSuccess === 'Success'
   const color = isSuccess ? '77af37' : 'd54c53'
   const h1 = isSuccess ? `
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
@@ -90,7 +90,6 @@ function getHtml (github) {
             <li>构建名称：${github.event.repository.name}</li>
             <li>构建分支：${github.ref}</li>
             <li>构建结果：${isSuccess ? '成功！' : '失败！'}</li>
-            <li>构建结果：${github.isSuccess}</li>
             <li>操作人：<a style="color:#fff;text-decoration:none;" href="${github.event.sender.url}">
               ${github.event.sender.login}
             </a></li>
