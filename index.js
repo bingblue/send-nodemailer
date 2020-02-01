@@ -36,7 +36,7 @@ if (data.html.startsWith(prefix)) {
 let github = process.env['INPUT_GITHUB']
 if (github) {
   github = JSON.parse(github)
-  github.isSuccess = process.env['INPUT_SUCCESS'] || true
+  github.isSuccess = process.env['INPUT_SUCCESS']
   data.html = getHtml(github)
 }
 /** 创建nodemailer transport，并发送邮件 */
@@ -91,7 +91,7 @@ function getHtml (github) {
             <li>构建分支：${github.ref}</li>
             <li>构建编号：${github.run_number} - ${github.run_id}</li>
             <li>构建事件：on:${github.event_name}(${github.sha.substring(0, 7)})</li>
-            <li>操作人：<a style="color:#fff;" href="${github.event.sender.url}">
+            <li>操作人：<a style="color:#fff;" href="${github.event.sender.html_url}">
               ${github.event.sender.login}
             </a></li>
             <li>持续时间：${getDuration(github)}</li>
