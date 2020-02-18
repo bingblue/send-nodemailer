@@ -94,6 +94,7 @@ function getHtml (github) {
             <li>操作人：<a style="color:#fff;" href="${github.event.sender.html_url}">
               ${github.event.sender.login}
             </a></li>
+            <li>开始日期：${getDate(github)}</li>
             <li>持续时间：${getDuration(github)}</li>
             <li>项目地址：<a style="color:#fff;" href="${github.event.repository.url}">
               ${github.repository}
@@ -118,9 +119,9 @@ function getHtml (github) {
 }
 /** 获取持续时间 */
 function getDuration (github) {
-  earlyDate = new Date(github.event.head_commit.timestamp).getTime()
-  lateDate = new Date().getTime()
-  let diff = lateDate - earlyDate
+  const earlyDate = new Date(github.event.repository.pushed_at*1000).getTime()
+  const lateDate = new Date().getTime()
+  const diff = lateDate - earlyDate
   let second = parseInt(diff / 1000)
   let minute
   if (second > 60) {
@@ -129,4 +130,12 @@ function getDuration (github) {
     return `${minute}分${second}秒`
   }
   return `${second}秒`
+}
+
+/** 获取开始日期 */
+function getDate (github) {
+  const pushedDate = new Date(github.event.repository.pushed_at*1000)
+  const date = pushedDate.toLocaleDateString()
+  const time = pushedDate.toLocaleTimeString()
+  return `${date} ${time}`
 }
