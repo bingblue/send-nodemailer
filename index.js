@@ -134,7 +134,7 @@ function getDuration (github) {
 
 /** 获取开始日期 */
 function getDate (github) {
-  const pushedDate = new Date(github.event.repository.pushed_at*1000 + 1000*60*60*8).getTime()
+  const pushedDate = new Date(github.event.repository.pushed_at*1000 + 1000*60*60*8)
   const Y = pushedDate.getFullYear()        // 年
   const m = pushedDate.getMonth() + 1       // 月
   const d = pushedDate.getDate()            // 日
