@@ -134,9 +134,12 @@ function getDuration (github) {
 
 /** 获取开始日期 */
 function getDate (github) {
-  const pushedDate = new Date(github.event.repository.pushed_at*1000 + 1000*60*60*8)
-  const date = pushedDate.toLocaleDateString()
-  const time = pushedDate.toLocaleTimeString()
-  return `${date} ${time}`
-  // return pushedDate
+  const pushedDate = new Date(github.event.repository.pushed_at*1000 + 1000*60*60*8).getTime()
+  const Y = pushedDate.getFullYear()        // 年
+  const m = pushedDate.getMonth() + 1       // 月
+  const d = pushedDate.getDate()            // 日
+  const H = pushedDate.getHours()           // 时
+  const M = pushedDate.getMinutes()         // 分
+  const S = pushedDate.getSeconds()         // 秒
+  return `${Y}年${m}月${d}日 ${H}:${M}:${S}`
 }
