@@ -46,8 +46,7 @@ transport.sendMail(data, (err, info) => {
 })
 /** 获取默认邮件样式 */
 function getHtml (github) {
-  console.log("getHtml -> github.isSuccess", github.isSuccess)
-  const isSuccess = github.isSuccess === 'Success'
+  const isSuccess = github.isSuccess === 'success'
   const color = isSuccess ? '77af37' : 'd54c53'
   const h1 = isSuccess ? `
   <h1 style="font-size:40px;color:#${color};text-align:center;margin:50px auto;">
