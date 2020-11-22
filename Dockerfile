@@ -6,6 +6,6 @@ COPY index.js /
 
 COPY package.json /package.json
 
-RUN npm install
+RUN npm --registry https://registry.npm.taobao.org i
 
 ENTRYPOINT ["node", "/index.js"]
