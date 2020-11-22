@@ -6,6 +6,6 @@ COPY index.js /
 
 COPY package.json /package.json
 
-RUN npm i
+RUN npm install
 
 ENTRYPOINT ["node", "/index.js"]
